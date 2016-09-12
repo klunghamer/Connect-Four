@@ -1,0 +1,24 @@
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+section {
+  width: 50vw;
+  height:70vh;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  /*overflow: hidden;*/
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+div {
+  width: 30px;
+  height: 30px;
+  background-color: yellow;
+  border: 1px solid black;
+
+}
