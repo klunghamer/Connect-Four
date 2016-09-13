@@ -2,42 +2,44 @@
 
 var App = {
   player: true,
+  freeSpace: [],
   createArrays: function () {
-    column1 = $('.column1');
-    column2 = $('.column2');
-    column3 = $('.column3');
-    column4 = $('.column4');
-    column5 = $('.column5');
-    column6 = $('.column6');
-    column6 = $('.column7');
+    var column1 = $('.column1');
+    var column2 = $('.column2');
+    var column3 = $('.column3');
+    var column4 = $('.column4');
+    var column5 = $('.column5');
+    var column6 = $('.column6');
+    var column7 = $('.column7');
+    // console.log(column1.children());
 
-    // column2 = $('.column2').children().toArray();
-    // column3 = $('.column3').children().toArray();
-    // column4 = $('.column4').children().toArray();
-    // column5 = $('.column5').children().toArray();
-    // column6 = $('.column6').children().toArray();
-    // column7 = $('.column7').children().toArray();
-    // console.log($('.column1:nth-child(1)').addClass('red'));
-    // console.log(column1);
 },
+  findFreeSpaces: function () {
+    for (var i = 5; i >= 0; i--) {
+      if (($(this).children().eq(i).hasClass('red') !== true) && ($(this).children().eq(i).hasClass('black') !== true)) {
+        App.freeSpace.push($(this).children().eq(i));
+      }
+    }
+      console.log(App.freeSpace);
+  },
 
   assignColor: function (arrays) {
-    // console.log(column1.children().eq(0).addClass('red'));
-    if(App.player) {
-      column1.children().eq(0).addClass('red');
-      console.log(column1.children().eq(0));
-    } else {
-      column1.children().eq(0).addClass('black');
-      console.log(column1.children().eq(0));
-    }
-    App.player = !App.player;
-
-
-    // }
-      //  else {
-      //   console.log('black');
+      // var i = 5;
+      // if((App.player) && ($(this).children().hasClass('black') !== true)) {
+      //   $(this).children().eq(i).addClass('red');
+      //   console.log($(this).children().eq(i));
+      //   App.player = !App.player;
+      //   i -= 1;
+      // } else if ($(this).children().hasClass('red') !== true) {
+      //   $(this).children().eq(i).addClass('black');
+      //   console.log($(this).children().eq(i));
+      //   App.player = !App.player;
+      //   i -= 1;
       // }
+  },
 
+  oneColor: function (arrays) {
+    // if($(this).children().hasClass())
   }
 }
 
@@ -84,6 +86,6 @@ var App = {
     //select last child of what is clicked
     //update it to be the 1 - minus the last child
     App.createArrays();
-    $('.column1').on('click', App.assignColor);
+    $('.column1').on('click', App.findFreeSpaces);
     $('.column2').on('click', App.assignColor);
   };
