@@ -17,8 +17,19 @@ var App = {
     App.column6.push($('.column6').children());
     App.column7.push($('.column7').children());
     // console.log(App.column7);
+    // App.countClicks++;
     console.log(App.countClicks);
+  },
+
+  assignColor: function () {
+    App.countClicks++;
+    if(App.countClicks%2 === 0) {
+      console.log('red');
+    } else {
+      console.log('black');
+    }
   }
+
   // countClicks: 0,
   // red: [],
   // black: [],
@@ -61,6 +72,6 @@ var UI = {
   window.onload = function () {
     //select last child of what is clicked
     //update it to be the 1 - minus the last child
-    $('.column1').on('click', App.createArrays);
-    $('.column2').on('click', UI.clickBoard);
+    $('.column1').on('click', App.assignColor);
+    $('.column2').on('click', App.assignColor);
   };
