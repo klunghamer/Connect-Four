@@ -1,47 +1,87 @@
+//
+// var rowsPlayer1 = ['red', 'black', 'red', 'black'];
+// console.log(rowsPlayer1.splice(2, 1,'black'));
+// console.log(rowsPlayer1);
 
-
-var App = {
-  player: true,
-  freeSpace: [],
-  createArrays: function () {
-    var column1 = $('.column1');
-    var column2 = $('.column2');
-    var column3 = $('.column3');
-    var column4 = $('.column4');
-    var column5 = $('.column5');
-    var column6 = $('.column6');
-    var column7 = $('.column7');
-    // console.log(column1.children());
-
-},
-  findFreeSpaces: function () {
-    for (var i = 5; i >= 0; i--) {
-      if (($(this).children().eq(i).hasClass('red') !== true) && ($(this).children().eq(i).hasClass('black') !== true)) {
-        App.freeSpace.push($(this).children().eq(i));
-      }
+var row1 = [ {color: 'black', column: 1}, {color: 'black', column: 2}, {color: 'black', column: 3}, {color: 'red', column: 4}];
+// console.log(row1.sort(function(a, b) {
+//   return parseFloat(a.column) - parseFloat(b.column);
+// }));
+var findFour = function () {
+  result = 1;
+  for (var i = 0; i < row1.length - 1; i++) {
+    if (row1[i].color === row1[i + 1].color) {
+      result++;
     }
-      console.log(App.freeSpace);
-  },
-
-  assignColor: function (arrays) {
-      // var i = 5;
-      // if((App.player) && ($(this).children().hasClass('black') !== true)) {
-      //   $(this).children().eq(i).addClass('red');
-      //   console.log($(this).children().eq(i));
-      //   App.player = !App.player;
-      //   i -= 1;
-      // } else if ($(this).children().hasClass('red') !== true) {
-      //   $(this).children().eq(i).addClass('black');
-      //   console.log($(this).children().eq(i));
-      //   App.player = !App.player;
-      //   i -= 1;
-      // }
-  },
-
-  oneColor: function (arrays) {
-    // if($(this).children().hasClass())
+    // console.log(row1[i].color);
   }
+  console.log(result);
 }
+findFour();
+
+// var App = {
+//   player: true,
+//   game: function (column) {
+//     if(App.player) {
+//       column1.unshift('black');
+//       row1.splice(column - 1, 1, 'black');
+//       App.player = !App.player;
+//     } else {
+//       column1.unshift('red');
+//       row1.splice(column - 1, 1, 'red');
+//       App.player = !App.player;
+//     }
+//     console.log(column1);
+//     console.log(row1);
+//   }
+// }
+
+
+
+// var App = {
+//   player: true,
+//   freeSpace: [],
+//   createArrays: function () {
+//     var column1 = $('.column1');
+//     var column2 = $('.column2');
+//     var column3 = $('.column3');
+//     var column4 = $('.column4');
+//     var column5 = $('.column5');
+//     var column6 = $('.column6');
+//     var column7 = $('.column7');
+//     // console.log(column1.children());
+//
+// },
+  // findFreeSpace: function () {
+  //   for (var i = 5; i >= 0; i--) {
+  //     if (($(this).children().eq(i).hasClass('red') !== true) && ($(this).children().eq(i).hasClass('black') !== true)) {
+  //       App.freeSpace.push($(this).children().eq(i));
+  //     }
+  //   }
+  //     console.log(App.freeSpace);
+  //     console.log(App.freeSpace[0]);
+  // },
+
+  // assignColor: function (arrays) {
+  //   var i = 5;
+  //   if(App.player) {
+  //     $(this).children().eq(i).addClass('red');
+  //     console.log($(this).children().eq(i));
+  //     App.player = !App.player;
+  //     i -= 1;
+  //   } else {
+  //     $(this).children().eq(i).addClass('black');
+  //     console.log($(this).children().eq(i));
+  //     App.player = !App.player;
+  //     i -= 1;
+  //   }
+    // findFreeSpace();
+  // },
+  //
+  // oneColor: function (arrays) {
+    // if($(this).children().hasClass())
+//   }
+// }
 
   // countClicks: 0,
   // red: [],
@@ -83,9 +123,7 @@ var App = {
 
 
   window.onload = function () {
-    //select last child of what is clicked
-    //update it to be the 1 - minus the last child
-    App.createArrays();
-    $('.column1').on('click', App.findFreeSpaces);
-    $('.column2').on('click', App.assignColor);
+    // App.createArrays();
+    // $('.column1').on('click', App.findFreeSpace);
+    // $('.column2').on('click', App.assignColor);
   };
