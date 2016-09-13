@@ -22,11 +22,15 @@ var App = {
 },
 
   assignColor: function (arrays) {
-    console.log(column1.children().eq(0).addClass('red'));
-    // if(App.player) {
-    //   column1[6].addClass('true');
-    //   console.log(column1[6]);
-      // App.player = !App.player;
+    // console.log(column1.children().eq(0).addClass('red'));
+    if(App.player) {
+      column1.children().eq(0).addClass('red');
+      console.log(column1.children().eq(0));
+    } else {
+      column1.children().eq(0).addClass('black');
+      console.log(column1.children().eq(0));
+    }
+    App.player = !App.player;
 
 
     // }
