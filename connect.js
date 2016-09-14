@@ -3,19 +3,24 @@
 // console.log(rowsPlayer1.splice(2, 1,'black'));
 // console.log(rowsPlayer1);
 
-var row1 = [ {color: 'black', column: 1}, {color: 'black', column: 2}, {color: 'black', column: 3}, {color: 'red', column: 4}];
+var row1 = [ {color: 'black', column: 0}, {color: 'black', column: 2}, {color: 'black', column: 3}, {color: 'black', column: 4}, {color: 'red', column: 5}];
 // console.log(row1.sort(function(a, b) {
 //   return parseFloat(a.column) - parseFloat(b.column);
 // }));
 var findFour = function () {
-  result = 1;
+  var conseq = false;
+  var count = 0;
   for (var i = 0; i < row1.length - 1; i++) {
-    if (row1[i].color === row1[i + 1].color) {
-      result++;
+    if ((row1[i].column + 1) === row1[i+1].column) {
+      count++;
+    } else {
+      count = 0;
     }
-    // console.log(row1[i].color);
+    if (count >= 4) {
+      conseq = true;
+    }
   }
-  console.log(result);
+  console.log(conseq);
 }
 findFour();
 
