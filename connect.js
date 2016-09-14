@@ -1,6 +1,13 @@
-var row = [{}, {}, {}];
-console.log(row[1].hasOwnProperty('column'));
-
+// var Arr = [5, 10, 15, 20];
+// var newArr = [];
+// var newEntry = function (num) {
+//   for (var i = 0; i < Arr.length; i++) {
+//     newArr.push(Arr[i]*num);
+//
+//   }
+//   console.log(newArr);
+// }
+// newEntry(3);
 
 var token1 = {column: 1};
 var token2 = {column: 2};
@@ -11,57 +18,87 @@ var token2 = {column: 2};
 // }));
 var App = {
   player: true,
-  board: [[null, null, null, null, null, null, null],
-  [null, null, null, null, null, 6, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null]],
+  board: [[],[],[],[],[],[],[]],
+  getColumn: function () {
+    var token = {};
+    var columnNum = Number($(this).attr('data-index'));
+    token.column = columnNum;
+    App.addColorProp(token);
+  },
   addColorProp: function (token) {
-    var columnNum = 1;
+    // token.color = 'black';
+    // console.log(token);
     if (App.player) {
       token.color = 'red';
+      App.board(columnNum).unshift(token);
       App.player = !App.player;
     } else {
     token.color = 'black';
     App.player = !App.player;
     }
-      for (var i = 6; i > -1; i--){
-        if (App.board[columnNum][i] === null) {
-          App.board[columnNum].splice([i], 1, token);
-          // App.board[columnNum].push();
-          break;
-        }
-      }
-
+    //   for (var i = 6; i > -1; i--){
+    //     if (App.board[columnNum][i].color === 'yellow') {
+    //       App.board[columnNum].unshift(token);
+    //       // App.board[columnNum].push();
+    //       break;
+    //     }
+    //   }
+    //
     console.log(App.board);
 },
-  findFourHorizontal: function () {
+  findFourVertical: function () {
+    var columnNum = 2;
     var conseq = false;
-    var count = 0;
-    for (var i = 0; i < row1.length - 1; i++) {
-      if ((row1[i].column + 1) === row1[i+1].column) {
-        count++;
-      } else {
-        count = 0;
-      }
-      if (count >= 4) {
-        conseq = true;
-      }
+    var count = 1;
+      for (var i = 0; i < App.board[columnNum].length - 1; i++) {
+        // if ((App.board[columnNum][i].color === 'black' )) {
+
+          if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
+            count++;
+          } else {
+            count = 1;
+          }
+          if (count >= 4) {
+            conseq = true;
+          }
+
     }
     console.log(conseq);
+    console.log(count);
   }
 }
-// console.log(App.board);
-App.addColorProp(token1);
-App.addColorProp(token2);
 
+//   findFourHorizontal: function () {
+//     var columnNum = 2;
+//     var conseq = false;
+//     var count = 1;
+//       for (var i = 0; i < App.board[columnNum].length - 1; i++) {
+//           if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
+//             count++;
+//           } else {
+//             count = 1;
+//           }
+//           if (count >= 4) {
+//             conseq = true;
+//           }
+//
+//     }
+//     console.log(conseq);
+//     console.log(count);
+//   }
+//   }
+// }
+// App.findFourVertical();
+// App.addColorProp(token1);
+// App.addColorProp(token2);
 
+// App.addColorProp(token1);
+// App.addColorProp(token2);
 // var App = {
 //   player: true,
   // getColumn: function () {
-  //   console.log($(this).attr('data-index'));
-  //   return $(this).attr('data-index');
+    // console.log($(this).attr('data-index'));
+    // return $(this).attr('data-index');
   // },
 //   game: function () {
 //     var columnNum = App.getColumn();
@@ -75,73 +112,7 @@ App.addColorProp(token2);
 //   }
 // }
 
-
-
-// var App = {
-//   player: true,
-//   freeSpace: [],
-//   createArrays: function () {
-//     var column1 = $('.column1');
-//     var column2 = $('.column2');
-//     var column3 = $('.column3');
-//     var column4 = $('.column4');
-//     var column5 = $('.column5');
-//     var column6 = $('.column6');
-//     var column7 = $('.column7');
-//     // console.log(column1.children());
-//
-// },
-  // findFreeSpace: function () {
-  //   for (var i = 5; i >= 0; i--) {
-  //     if (($(this).children().eq(i).hasClass('red') !== true) && ($(this).children().eq(i).hasClass('black') !== true)) {
-  //       App.freeSpace.push($(this).children().eq(i));
-  //     }
-  //   }
-  //     console.log(App.freeSpace);
-  //     console.log(App.freeSpace[0]);
-  // },
-
-  // assignColor: function (arrays) {
-  //   var i = 5;
-  //   if(App.player) {
-  //     $(this).children().eq(i).addClass('red');
-  //     console.log($(this).children().eq(i));
-  //     App.player = !App.player;
-  //     i -= 1;
-  //   } else {
-  //     $(this).children().eq(i).addClass('black');
-  //     console.log($(this).children().eq(i));
-  //     App.player = !App.player;
-  //     i -= 1;
-  //   }
-    // findFreeSpace();
-  // },
-  //
-  // oneColor: function (arrays) {
-    // if($(this).children().hasClass())
-//   }
-// }
-
-// var UI = {
-  // changeColor: function(obj) {
-  //     if (obj.color = 'red') {
-  //       $(this).css('color', 'red');
-  //     }
-  //     if (obj.color = 'black') {
-  //       $(this).css('color', 'black');
-  //     }
-  // },
-  // clickBoard: function(column) {
-  //   console.log('hi');
-  //
-  //   console.log($(this).children().length - UI.countClicks);
-  //   UI.countClicks++;
-  // }
-// }
-
-
-
 window.onload = function () {
   $('.column1').on('click', App.getColumn);
-  $('.column1').on('click', App.game);
+  // $('.column1').on('click', App.game);
 };
