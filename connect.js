@@ -1,7 +1,4 @@
-//
-// var rowsPlayer1 = ['red', 'black', 'red', 'black'];
-// console.log(rowsPlayer1.splice(2, 1,'black'));
-// console.log(rowsPlayer1);
+
 
 var row1 = [ {color: 'black', column: 0}, {color: 'black', column: 2}, {color: 'black', column: 3}, {color: 'black', column: 4}, {color: 'red', column: 5}];
 // console.log(row1.sort(function(a, b) {
@@ -22,24 +19,30 @@ var findFour = function () {
   }
   console.log(conseq);
 }
-findFour();
+// findFour();
 
-// var App = {
-//   player: true,
-//   game: function (column) {
-//     if(App.player) {
-//       column1.unshift('black');
-//       row1.splice(column - 1, 1, 'black');
-//       App.player = !App.player;
-//     } else {
-//       column1.unshift('red');
-//       row1.splice(column - 1, 1, 'red');
-//       App.player = !App.player;
-//     }
-//     console.log(column1);
-//     console.log(row1);
-//   }
-// }
+var App = {
+  player: true,
+  getColumn: function () {
+    console.log($(this).attr('data-index'));
+    return $(this).attr('data-index');
+  },
+  game: function () {
+    var columnNum = App.getColumn();
+    var obj = {};
+    if(App.player) {
+      obj.color = 'black';
+      obj.column = columnNum;
+    //   row1.splice(column - 1, 1, 'black');
+    //   App.player = !App.player;
+    // } else {
+    //   column1.unshift('red');
+    //   row1.splice(column - 1, 1, 'red');
+    //   App.player = !App.player;
+    }
+    console.log(columnNum);
+  }
+}
 
 
 
@@ -88,26 +91,6 @@ findFour();
 //   }
 // }
 
-  // countClicks: 0,
-  // red: [],
-  // black: [],
-  // isClicked: function(childOfSection) {
-  //   if (clicks is odd) {
-  //     create clicked property to be equal to true
-  //     add class of red
-  //     push new object into red
-  //   }
-  //   if (clicks is even) {
-  //     create click property to be true
-  //     add class of black
-  //     push new object into black
-  //   }
-  // },
-  // connectFour: function (red or black arrays){
-  //
-  // }
-// }
-
 // var UI = {
   // changeColor: function(obj) {
   //     if (obj.color = 'red') {
@@ -127,8 +110,7 @@ findFour();
 
 
 
-  window.onload = function () {
-    // App.createArrays();
-    // $('.column1').on('click', App.findFreeSpace);
-    // $('.column2').on('click', App.assignColor);
-  };
+window.onload = function () {
+  $('.column1').on('click', App.getColumn);
+  $('.column1').on('click', App.game);
+};
