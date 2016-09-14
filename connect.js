@@ -23,50 +23,53 @@ var App = {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
-    App.addColorProp(token);
+    App.addColorProp(token, columnNum);
   },
-  addColorProp: function (token) {
-    // token.color = 'black';
-    // console.log(token);
+  addColorProp: function (token, columnNum) {
     if (App.player) {
       token.color = 'red';
-      App.board(columnNum).unshift(token);
+      App.board[columnNum - 1].unshift(token);
       App.player = !App.player;
     } else {
     token.color = 'black';
+    App.board[columnNum - 1].unshift(token);
     App.player = !App.player;
-    }
-    //   for (var i = 6; i > -1; i--){
-    //     if (App.board[columnNum][i].color === 'yellow') {
-    //       App.board[columnNum].unshift(token);
-    //       // App.board[columnNum].push();
-    //       break;
-    //     }
-    //   }
-    //
-    console.log(App.board);
-},
-  findFourVertical: function () {
-    var columnNum = 2;
-    var conseq = false;
-    var count = 1;
-      for (var i = 0; i < App.board[columnNum].length - 1; i++) {
-        // if ((App.board[columnNum][i].color === 'black' )) {
-
-          if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
-            count++;
-          } else {
-            count = 1;
-          }
-          if (count >= 4) {
-            conseq = true;
-          }
-
-    }
-    console.log(conseq);
-    console.log(count);
   }
-}
+    console.log(App.board);
+} }
+  // findFourVertical: function (columnNum, player) {
+  //   color = if player === player1, color = red, else color =black
+  //   var column = App.board[columnNum];
+  //   var winningRow = [];
+  //
+  //   for (var i = 0; i < column.length; i++) {
+  //     if(column[i].color === color)
+  //      winningRow.push(indexOf(column[i]))
+  //   }
+  //
+  //   check if theres 4 in a row in winningRow
+  //
+  //
+  //   var columnNum = 2;
+  //   var conseq = false;
+  //   var count = 1;
+  //     for (var i = 0; i < App.board[columnNum].length - 1; i++) {
+  //       // if ((App.board[columnNum][i].color === 'black' )) {
+  //
+  //         if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
+  //           count++;
+  //         } else {
+  //           count = 1;
+  //         }
+  //         if (count >= 4) {
+  //           conseq = true;
+  //         }
+  //
+  //   }
+  //   console.log(conseq);
+  //   console.log(count);
+  // }
+// }
 
 //   findFourHorizontal: function () {
 //     var columnNum = 2;
@@ -113,6 +116,6 @@ var App = {
 // }
 
 window.onload = function () {
-  $('.column1').on('click', App.getColumn);
+  $('.column').on('click', App.getColumn);
   // $('.column1').on('click', App.game);
 };
