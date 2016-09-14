@@ -1,48 +1,79 @@
+var row = [{}, {}, {}];
+console.log(row[1].hasOwnProperty('column'));
 
 
-var row1 = [ {color: 'black', column: 0}, {color: 'black', column: 2}, {color: 'black', column: 3}, {color: 'black', column: 4}, {color: 'red', column: 5}];
+var token1 = {column: 1};
+var token2 = {column: 2};
+// console.log(row.splice(0, 1, token1));
+// console.log(row);
 // console.log(row1.sort(function(a, b) {
 //   return parseFloat(a.column) - parseFloat(b.column);
 // }));
-var findFour = function () {
-  var conseq = false;
-  var count = 0;
-  for (var i = 0; i < row1.length - 1; i++) {
-    if ((row1[i].column + 1) === row1[i+1].column) {
-      count++;
-    } else {
-      count = 0;
-    }
-    if (count >= 4) {
-      conseq = true;
-    }
-  }
-  console.log(conseq);
-}
-// findFour();
-
 var App = {
   player: true,
-  getColumn: function () {
-    console.log($(this).attr('data-index'));
-    return $(this).attr('data-index');
-  },
-  game: function () {
-    var columnNum = App.getColumn();
-    var obj = {};
-    if(App.player) {
-      obj.color = 'black';
-      obj.column = columnNum;
-    //   row1.splice(column - 1, 1, 'black');
-    //   App.player = !App.player;
-    // } else {
-    //   column1.unshift('red');
-    //   row1.splice(column - 1, 1, 'red');
-    //   App.player = !App.player;
+  board: [[null, null, null, null, null, null, null],
+  [null, null, null, null, null, 6, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null]],
+  addColorProp: function (token) {
+    var columnNum = 1;
+    if (App.player) {
+      token.color = 'red';
+      App.player = !App.player;
+    } else {
+    token.color = 'black';
+    App.player = !App.player;
     }
-    console.log(columnNum);
+      for (var i = 6; i > -1; i--){
+        if (App.board[columnNum][i] === null) {
+          App.board[columnNum].splice([i], 1, token);
+          // App.board[columnNum].push();
+          break;
+        }
+      }
+
+    console.log(App.board);
+},
+  findFourHorizontal: function () {
+    var conseq = false;
+    var count = 0;
+    for (var i = 0; i < row1.length - 1; i++) {
+      if ((row1[i].column + 1) === row1[i+1].column) {
+        count++;
+      } else {
+        count = 0;
+      }
+      if (count >= 4) {
+        conseq = true;
+      }
+    }
+    console.log(conseq);
   }
 }
+// console.log(App.board);
+App.addColorProp(token1);
+App.addColorProp(token2);
+
+
+// var App = {
+//   player: true,
+  // getColumn: function () {
+  //   console.log($(this).attr('data-index'));
+  //   return $(this).attr('data-index');
+  // },
+//   game: function () {
+//     var columnNum = App.getColumn();
+//     var obj = {};
+//     if(App.player) {
+//       obj.color = 'black';
+//       obj.column = columnNum;
+//       App.player = !App.player;
+//     }
+//     console.log(columnNum);
+//   }
+// }
 
 
 
