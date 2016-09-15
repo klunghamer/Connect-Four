@@ -8,7 +8,6 @@ var App = {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
-    token.row =
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
@@ -54,17 +53,25 @@ var App = {
     var winningRowRed = [];
     var winningRowBlack = [];
     for (var i = 0; i < App.board.length; i++) {
-      for (var j = App.board[i].length; j > -1; j--) {
-        console.log('hi');
-        // if(App.board[i][j].color === 'red') {
-        //  winningRowRed.push(App.board[i][j]);
-       /*} else if (column[i].color === 'black'){
-         winningRowBlack.push(i);
-       }*/
+      for (var j = App.board[i].length-1; j >= 0; j--) {
+        console.log(App.board[i][j]);
+        if(App.board[i][j].color === 'red') {
+         winningRowRed.push(j);
+       } else if (App.board[i][j].color === 'black'){
+         winningRowBlack.push(App.board[i][j].column);
+       }
      }
     }
-    // through column 1 - 6 compare red or black and return to arrays
-    console.log(winningRowRed);
+    if (winningRowRed.toString().includes('0,0,0,0') || winningRowRed.toString().includes('1,1,1,1') || winningRowRed.toString().includes('2,2,2,2') || winningRowRed.toString().includes('3,3,3,3') || winningRowRed.toString().includes('4,4,4,4') || winningRowRed.toString().includes('5,5,5,5')) {
+      App.player1Wins = true;
+      console.log('Player 1 Wins!');
+    }
+    if (winningRowBlack.toString().includes('0,0,0,0') || winningRowBlack.toString().includes('1,1,1,1') || winningRowBlack.toString().includes('2,2,2,2') || winningRowBlack.toString().includes('3,3,3,3') || winningRowBlack.toString().includes('4,4,4,4') || winningRowBlack.toString().includes('5,5,5,5')) {
+      App.player2Wins = true;
+      console.log('Player 2 Wins!');
+    }
+    // console.log(winningRowRed);
+    // console.log(winningRowBlack);
   },
 }
 
