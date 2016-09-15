@@ -59,19 +59,19 @@ var App = {
       for (var j = App.board[i].length-1; j >= 0; j--) {
         // console.log(App.board[i][j]);
         if(App.board[i][j].color === 'red') {
-         winningRowRed.push(j);
-        //  console.log(winningRowRed);
+         winningRowRed.push(App.board[i][j].column);
+         console.log(winningRowRed);
        } else if (App.board[i][j].color === 'black'){
-         winningRowBlack.push(j);
-        //  console.log(winningRowBlack);
+         winningRowBlack.push(App.board[i][j].column);
+         console.log(winningRowBlack);
        }
      }
     }
-    if (winningRowRed.toString().includes('0,0,0,0') || winningRowRed.toString().includes('1,1,1,1') || winningRowRed.toString().includes('2,2,2,2') || winningRowRed.toString().includes('3,3,3,3') || winningRowRed.toString().includes('4,4,4,4') || winningRowRed.toString().includes('5,5,5,5')) {
+    if (winningRowRed.toString().includes('0,1,2,3') || winningRowRed.toString().includes('1,2,3,4') || winningRowRed.toString().includes('2,3,4,5') || winningRowRed.toString().includes('3,4,5,6')) {
       App.player1Wins = true;
       console.log('Player 1 Wins!');
     }
-    if (winningRowBlack.toString().includes('0,0,0,0') || winningRowBlack.toString().includes('1,1,1,1') || winningRowBlack.toString().includes('2,2,2,2') || winningRowBlack.toString().includes('3,3,3,3') || winningRowBlack.toString().includes('4,4,4,4') || winningRowBlack.toString().includes('5,5,5,5')) {
+    if (winningRowBlack.toString().includes('0,1,2,3') || winningRowBlack.toString().includes('1,2,3,4') || winningRowBlack.toString().includes('2,3,4,5') || winningRowBlack.toString().includes('3,4,5,6')) {
       App.player2Wins = true;
       console.log('Player 2 Wins!');
     }
@@ -97,14 +97,27 @@ var UI = {
       $('#player2').hide();
       $('#player1').show();
     }
-    console.log(App.player);
+    // console.log(App.player);
+  },
+  showWinner: function () {
+    if (App.player1Wins === true) {
+      $('#onewins').show();
+      $('.start').hide();
+    }
+    if (App.player2Wins === true) {
+      $('#twowins').show();
+      $('.start').hide();
+    }
   }
 }
 
 
 window.onload = function () {
   $('#player2').hide();
+  $('#twowins').hide();
+  $('#onewins').hide();
   $('div').one('click', App.getColumn);
   $('div').one('click', UI.changeColors);
   $('div').on('click', UI.playerTurn);
+  $('div').on('click', UI.showWinner);
 };
