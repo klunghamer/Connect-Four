@@ -24,6 +24,7 @@ var App = {
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
     App.addColorProp(token, columnNum);
+    App.findFourVertical(columnNum);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -31,22 +32,27 @@ var App = {
       App.board[columnNum - 1].unshift(token);
       App.player = !App.player;
     } else {
-    token.color = 'black';
-    App.board[columnNum - 1].unshift(token);
-    App.player = !App.player;
+      token.color = 'black';
+      App.board[columnNum - 1].unshift(token);
+      App.player = !App.player;
+    }
+      console.log(App.board);
+  },
+
+  findFourVertical: function (columnNum, player) {
+    console.log(columnNum);
+    var column = App.board[columnNum-1];
+    console.log(column);
+    var winningColumnRed = [];
+    for (var i = 0; i < column.length; i++) {
+      if(column[i].color === 'red') {
+       winningColumnRed.push(column[i].column)
+     }
+    }
+    console.log(winningColumnRed);
   }
-    console.log(App.board);
-} }
-  // findFourVertical: function (columnNum, player) {
-  //   color = if player === player1, color = red, else color =black
-  //   var column = App.board[columnNum];
-  //   var winningRow = [];
-  //
-  //   for (var i = 0; i < column.length; i++) {
-  //     if(column[i].color === color)
-  //      winningRow.push(indexOf(column[i]))
-  //   }
-  //
+ }
+
   //   check if theres 4 in a row in winningRow
   //
   //
@@ -69,7 +75,6 @@ var App = {
   //   console.log(conseq);
   //   console.log(count);
   // }
-// }
 
 //   findFourHorizontal: function () {
 //     var columnNum = 2;
@@ -94,28 +99,8 @@ var App = {
 // App.findFourVertical();
 // App.addColorProp(token1);
 // App.addColorProp(token2);
-
-// App.addColorProp(token1);
-// App.addColorProp(token2);
-// var App = {
-//   player: true,
-  // getColumn: function () {
-    // console.log($(this).attr('data-index'));
-    // return $(this).attr('data-index');
-  // },
-//   game: function () {
-//     var columnNum = App.getColumn();
-//     var obj = {};
-//     if(App.player) {
-//       obj.color = 'black';
-//       obj.column = columnNum;
-//       App.player = !App.player;
-//     }
-//     console.log(columnNum);
-//   }
-// }
-
 window.onload = function () {
   $('.column').on('click', App.getColumn);
-  // $('.column1').on('click', App.game);
+
 };
+// App.findFourVertical();
