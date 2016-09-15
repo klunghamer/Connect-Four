@@ -6,12 +6,12 @@ var App = {
   player2Wins: false,
   getColumn: function () {
     var token = {};
-    var columnNum = Number($(this).parent().attr('data-index'));
+    var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
-    UI.playerTurn();
+    UI.changeColors(token, columnNum);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -75,19 +75,28 @@ var App = {
       App.player2Wins = true;
       console.log('Player 2 Wins!');
     }
-    // console.log(winningRowRed);
-    // console.log(winningRowBlack);
   },
 }
 
 var UI = {
-  changeColors: function () {
-    if (App.player === false) {
-      $(this).css('backgroundColor', 'rgb(255,0,0)');
-    } else {
-      $(this).css('backgroundColor', 'rgb(0,0,0)');
+  changeColors: function (token, columnNum) {
+    var column = App.board[columnNum];
+      if ($('.column').children().eq().css('backgroundColor') === 'rgb(255,255,0') {
+        for (var i = 0; i < column.length; i++) {
+          if(token.color === 'red') {
+            $('.column').children().eq(i).css('backgroundColor', 'rgb(255,0,0)');
+          }
+          if(token.color === 'black') {
+            $('.column').children().eq(i).css('backgroundColor', 'rgb(0,0,0)');
+        }
+      }
     }
   },
+    // if (App.player === false) {
+    //   $(this).css('backgroundColor', 'rgb(255,0,0)');
+    // } else {
+    //   $(this).css('backgroundColor', 'rgb(0,0,0)');
+    // }
   playerTurn: function () {
     if (App.player === false) {
       $('#player1').hide();
@@ -116,8 +125,8 @@ window.onload = function () {
   $('#player2').hide();
   $('#twowins').hide();
   $('#onewins').hide();
-  $('div').one('click', App.getColumn);
-  $('div').one('click', UI.changeColors);
-  $('div').on('click', UI.playerTurn);
-  $('div').on('click', UI.showWinner);
+  $('.column').on('click', App.getColumn);
+  $('column').on('click', UI.changeColors);
+  $('.column').on('click', UI.playerTurn);
+  $('.column').on('click', UI.showWinner);
 };
