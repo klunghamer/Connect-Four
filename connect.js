@@ -1,21 +1,4 @@
-// var Arr = [5, 10, 15, 20];
-// var newArr = [];
-// var newEntry = function (num) {
-//   for (var i = 0; i < Arr.length; i++) {
-//     newArr.push(Arr[i]*num);
-//
-//   }
-//   console.log(newArr);
-// }
-// newEntry(3);
 
-var token1 = {column: 1};
-var token2 = {column: 2};
-// console.log(row.splice(0, 1, token1));
-// console.log(row);
-// console.log(row1.sort(function(a, b) {
-//   return parseFloat(a.column) - parseFloat(b.column);
-// }));
 var App = {
   player: true,
   board: [[],[],[],[],[],[],[]],
@@ -25,6 +8,7 @@ var App = {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
+    token.row =
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
@@ -32,18 +16,18 @@ var App = {
   addColorProp: function (token, columnNum) {
     if (App.player) {
       token.color = 'red';
-      App.board[columnNum - 1].unshift(token);
+      App.board[columnNum].unshift(token);
       App.player = !App.player;
     } else {
       token.color = 'black';
-      App.board[columnNum - 1].unshift(token);
+      App.board[columnNum].unshift(token);
       App.player = !App.player;
     }
       console.log(App.board);
   },
 
   findFourVertical: function (columnNum) {
-    var column = App.board[columnNum-1];
+    var column = App.board[columnNum];
     var winningColumnRed = [];
     var winningColumnBlack = [];
     for (var i = 0; i < column.length; i++) {
@@ -61,12 +45,26 @@ var App = {
       App.player2Wins = true;
       console.log('Player 2 Wins!');
     }
-    console.log(winningColumnRed.toString());
-    console.log(winningColumnBlack.toString());
+    // console.log(winningColumnRed.toString());
+    // console.log(winningColumnBlack.toString());
   },
 
   findFourHorizontal: function (columnNum) {
-
+    // var column = App.board[columnNum];
+    var winningRowRed = [];
+    var winningRowBlack = [];
+    for (var i = 0; i < App.board.length; i++) {
+      for (var j = App.board[i].length; j > -1; j--) {
+        console.log('hi');
+        // if(App.board[i][j].color === 'red') {
+        //  winningRowRed.push(App.board[i][j]);
+       /*} else if (column[i].color === 'black'){
+         winningRowBlack.push(i);
+       }*/
+     }
+    }
+    // through column 1 - 6 compare red or black and return to arrays
+    console.log(winningRowRed);
   },
 }
 
