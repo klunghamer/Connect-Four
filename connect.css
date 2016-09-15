@@ -1,7 +1,22 @@
+body {
+  font-family: 'Francois One', sans-serif;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
 main {
   display: flex;
   flex-direction: row;
   width: 60vw;
+  margin: auto;
+  float: left;
+  margin: 2em;
+  border: 10px solid gray;
+  border-radius: 15px;
+  outine: solid 5px yellow;
 }
 
 section {
@@ -13,13 +28,37 @@ section {
   /*overflow: hidden;*/
   justify-content: space-around;
   align-items: center;
-
+  border: 5px solid yellow;
+  border-radius: 15px;
 }
 
 div {
   width: 30px;
   height: 30px;
   background-color: yellow;
-  border: 1px solid black;
+  border: 4px solid black;
   border-radius: 12px;
+}
+
+aside {
+  background-color: red;
+  height: 50px;
+  width: 15vw;
+  padding: 1em;
+  margin: 1em;
+  margin-right: 0;
+  float: left;
+  border: 3px solid black;
+  border-radius: 10px;
+  /*margin-top: 25%;*/
+}
+
+.start {
+  margin-top: 20%;
+}
+
+
+
+span {
+  font-size: 18px;
 }
