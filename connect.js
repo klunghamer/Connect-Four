@@ -19,12 +19,15 @@ var token2 = {column: 2};
 var App = {
   player: true,
   board: [[],[],[],[],[],[],[]],
+  player1Wins: false,
+  player2Wins: false,
   getColumn: function () {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
+    App.findFourHorizontal(columnNum);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -39,66 +42,34 @@ var App = {
       console.log(App.board);
   },
 
-  findFourVertical: function (columnNum, player) {
-    console.log(columnNum);
+  findFourVertical: function (columnNum) {
     var column = App.board[columnNum-1];
-    console.log(column);
     var winningColumnRed = [];
+    var winningColumnBlack = [];
     for (var i = 0; i < column.length; i++) {
       if(column[i].color === 'red') {
-       winningColumnRed.push(column[i].column)
+       winningColumnRed.push(i);
+     } else if (column[i].color === 'black'){
+       winningColumnBlack.push(i);
      }
     }
-    console.log(winningColumnRed);
-  }
- }
+    if (winningColumnRed.toString().includes('0,1,2,3') || winningColumnRed.toString().includes('1,2,3,4') || winningColumnRed.toString().includes('2,3,4,5') || winningColumnRed.toString().includes('3,4,5,6')) {
+      App.player1Wins = true;
+      console.log('Player 1 Wins!');
+    }
+    if (winningColumnBlack.toString().includes('0,1,2,3') || winningColumnBlack.toString().includes('1,2,3,4') || winningColumnBlack.toString().includes('2,3,4,5') || winningColumnBlack.toString().includes('3,4,5,6')) {
+      App.player2Wins = true;
+      console.log('Player 2 Wins!');
+    }
+    console.log(winningColumnRed.toString());
+    console.log(winningColumnBlack.toString());
+  },
 
-  //   check if theres 4 in a row in winningRow
-  //
-  //
-  //   var columnNum = 2;
-  //   var conseq = false;
-  //   var count = 1;
-  //     for (var i = 0; i < App.board[columnNum].length - 1; i++) {
-  //       // if ((App.board[columnNum][i].color === 'black' )) {
-  //
-  //         if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
-  //           count++;
-  //         } else {
-  //           count = 1;
-  //         }
-  //         if (count >= 4) {
-  //           conseq = true;
-  //         }
-  //
-  //   }
-  //   console.log(conseq);
-  //   console.log(count);
-  // }
+  findFourHorizontal: function (columnNum) {
 
-//   findFourHorizontal: function () {
-//     var columnNum = 2;
-//     var conseq = false;
-//     var count = 1;
-//       for (var i = 0; i < App.board[columnNum].length - 1; i++) {
-//           if ((App.board[columnNum][i].color === App.board[columnNum][i+1].color)) {
-//             count++;
-//           } else {
-//             count = 1;
-//           }
-//           if (count >= 4) {
-//             conseq = true;
-//           }
-//
-//     }
-//     console.log(conseq);
-//     console.log(count);
-//   }
-//   }
-// }
-// App.findFourVertical();
-// App.addColorProp(token1);
-// App.addColorProp(token2);
+  },
+}
+
 window.onload = function () {
   $('.column').on('click', App.getColumn);
 
