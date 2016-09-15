@@ -6,12 +6,11 @@ var App = {
   player2Wins: false,
   getColumn: function () {
     var token = {};
-    var columnNum = Number($(this).attr('data-index'));
+    var columnNum = Number($(this).parent().attr('data-index'));
     token.column = columnNum;
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
-    UI.changeColors(token);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -24,6 +23,7 @@ var App = {
       App.player = !App.player;
     }
       console.log(App.board);
+      // UI.changeColors(token, columnNum);
   },
 
   findFourVertical: function (columnNum) {
@@ -55,11 +55,13 @@ var App = {
     var winningRowBlack = [];
     for (var i = 0; i < App.board.length; i++) {
       for (var j = App.board[i].length-1; j >= 0; j--) {
-        console.log(App.board[i][j]);
+        // console.log(App.board[i][j]);
         if(App.board[i][j].color === 'red') {
          winningRowRed.push(j);
+         console.log(winningRowRed);
        } else if (App.board[i][j].color === 'black'){
-         winningRowBlack.push(App.board[i][j].column);
+         winningRowBlack.push(j);
+         console.log(winningRowBlack);
        }
      }
     }
@@ -77,16 +79,19 @@ var App = {
 }
 
 var UI = {
-  changeColors: function (token) {
-    if (token.hasOwnProperty('red')){
-      console.log('hi');
+  changeColors: function () {
+
+
+    if (App.player === false) {
+      $(this).css('backgroundColor', 'rgb(255,0,0)');
+    } else {
+      $(this).css('backgroundColor', 'rgb(0,0,0)');
     }
   }
-
 }
 
+
 window.onload = function () {
-  $('.column').on('click', App.getColumn);
-  // $('.column').on('click', UI.changeColors);
+  $('div').one('click', App.getColumn);
+  $('div').one('click', UI.changeColors);
 };
-// App.findFourVertical();
