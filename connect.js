@@ -11,6 +11,7 @@ var App = {
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
+    UI.changeColors(token);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -75,8 +76,17 @@ var App = {
   },
 }
 
+var UI = {
+  changeColors: function (token) {
+    if (token.hasOwnProperty('red')){
+      console.log('hi');
+    }
+  }
+
+}
+
 window.onload = function () {
   $('.column').on('click', App.getColumn);
-
+  // $('.column').on('click', UI.changeColors);
 };
 // App.findFourVertical();
