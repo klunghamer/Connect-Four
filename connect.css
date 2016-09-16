@@ -28,7 +28,7 @@ main {
 section {
   width: 50vw;
   height:70vh;
-  background-color: blue;
+  background-color: #1a53ff;
   display: flex;
   flex-direction: column-reverse;
   /*overflow: hidden;*/
