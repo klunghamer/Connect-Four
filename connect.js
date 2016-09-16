@@ -8,9 +8,10 @@ var App = {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
+    token.row =
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
-    App.findFourHorizontal(columnNum);
+    App.findFourHorizontal(token.color, columnNum);
     UI.color(token.color, columnNum);
   },
   addColorProp: function (token, columnNum) {
@@ -51,7 +52,7 @@ var App = {
     // console.log(winningColumnBlack.toString());
   },
 
-  findFourHorizontal: function (columnNum) {
+  findFourHorizontal: function (color, columnNum) {
     // var column = App.board[columnNum];
     var winningRowRed = [];
     var winningRowBlack = [];
@@ -59,11 +60,11 @@ var App = {
       for (var j = App.board[i].length-1; j >= 0; j--) {
         // console.log(App.board[i][j]);
         if(App.board[i][j].color === 'red') {
-         winningRowRed.push(/*App.board[i]*/[i]);
+         winningRowRed.push(App.board[i][j].column);
          console.log(winningRowRed);
        } else if (App.board[i][j].color === 'black'){
          winningRowBlack.push(App.board[i][j].column);
-        //  console.log(winningRowBlack);
+         console.log(winningRowBlack);
        }
      }
     }
