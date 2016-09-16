@@ -76,6 +76,18 @@ var App = {
       App.player2Wins = true;
       console.log('Player 2 Wins!');
     }
+    // for (var i = 0; i < App.board[columnNum].length; i++) {
+    //   for (var j = 0; j <) {
+    //     if(App.board[i][j].color === 'red') {
+    //      winningRowRed.push(App.board[i][j].column);
+    //      console.log(winningRowRed);
+    //    } else if (App.board[i][j].color === 'black'){
+    //      winningRowBlack.push(App.board[i][j].column);
+    //      console.log(winningRowBlack);
+    //    }
+    //  }
+    //hello
+
   },
 }
 
