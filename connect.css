@@ -27,7 +27,7 @@ section {
   height:70vh;
   background-color: blue;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   /*overflow: hidden;*/
   justify-content: space-around;
   align-items: center;
@@ -65,4 +65,11 @@ aside:not(.start) {
   padding: .5em;
   font-size: 20px;
   text-align: center;
+}
+
+@media (min-width: 730px) {
+  aside {
+    margin-top: 10%;
+  }
+
 }

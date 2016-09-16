@@ -11,7 +11,7 @@ var App = {
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(columnNum);
-    UI.changeColors(token, columnNum);
+    UI.color(token.color, columnNum);
   },
   addColorProp: function (token, columnNum) {
     if (App.player) {
@@ -60,10 +60,10 @@ var App = {
         // console.log(App.board[i][j]);
         if(App.board[i][j].color === 'red') {
          winningRowRed.push(App.board[i][j].column);
-         console.log(winningRowRed);
+        //  console.log(winningRowRed);
        } else if (App.board[i][j].color === 'black'){
          winningRowBlack.push(App.board[i][j].column);
-         console.log(winningRowBlack);
+        //  console.log(winningRowBlack);
        }
      }
     }
@@ -79,18 +79,35 @@ var App = {
 }
 
 var UI = {
-  changeColors: function (token, columnNum) {
-    var column = App.board[columnNum];
-      if ($('.column').children().eq().css('backgroundColor') === 'rgb(255,255,0') {
-        for (var i = 0; i < column.length; i++) {
-          if(token.color === 'red') {
-            $('.column').children().eq(i).css('backgroundColor', 'rgb(255,0,0)');
-          }
-          if(token.color === 'black') {
-            $('.column').children().eq(i).css('backgroundColor', 'rgb(0,0,0)');
-        }
+  color: function(color, col){
+    var column = $('.col' + col);
+
+    var takenSpots = [];
+    for (var i = 0; i < column.length; i++) {
+      if(column[i].style.backgroundColor != ''){
+        takenSpots.push(column[i]);
       }
     }
+
+    column[takenSpots.length].style.backgroundColor = color; //color from input
+
+  },
+
+  changeColors: function (token, columnNum) {
+
+    // if (token.color === 'red') {
+    //   $('.column').children().last().css('backgroundColor', 'rgb(255,0,0)');
+    // }
+    var column = App.board[columnNum];
+    //   for (var i = 0; i < column.length; i++) {
+    //     if(token.color === 'red') {
+    //       console.log($('.column').children().eq(i));
+    //       $('.column').children().eq(i).css('backgroundColor', 'rgb(255,0,0)');
+    //     }
+    //     if(token.color === 'black') {
+    //       $('.column').children().eq(i).css('backgroundColor', 'rgb(0,0,0)');
+    //   }
+    // }
   },
     // if (App.player === false) {
     //   $(this).css('backgroundColor', 'rgb(255,0,0)');
@@ -126,7 +143,7 @@ window.onload = function () {
   $('#twowins').hide();
   $('#onewins').hide();
   $('.column').on('click', App.getColumn);
-  $('column').on('click', UI.changeColors);
   $('.column').on('click', UI.playerTurn);
   $('.column').on('click', UI.showWinner);
+
 };
