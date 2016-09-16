@@ -88,25 +88,10 @@ var UI = {
       }
     }
     column[takenSpots.length].style.backgroundColor = color; //color from input
+    column[takenSpots.length].innerHTML = '&#9733';
 
   },
 
-  changeColors: function (token, columnNum) {
-
-    // if (token.color === 'red') {
-    //   $('.column').children().last().css('backgroundColor', 'rgb(255,0,0)');
-    // }
-    var column = App.board[columnNum];
-    //   for (var i = 0; i < column.length; i++) {
-    //     if(token.color === 'red') {
-    //       console.log($('.column').children().eq(i));
-    //       $('.column').children().eq(i).css('backgroundColor', 'rgb(255,0,0)');
-    //     }
-    //     if(token.color === 'black') {
-    //       $('.column').children().eq(i).css('backgroundColor', 'rgb(0,0,0)');
-    //   }
-    // }
-  },
   playerTurn: function () {
     if (App.player === false) {
       $('#player1').hide();
@@ -130,7 +115,7 @@ var UI = {
   }
 }
 
-
+// &#9734
 window.onload = function () {
   $('#player2').hide();
   $('#twowins').hide();

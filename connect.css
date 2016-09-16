@@ -6,8 +6,11 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
   margin: .35em;
+  color:  #ff1a1a;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 3px grey;
 }
 
 main {
@@ -41,19 +44,22 @@ div {
   background-color: yellow;
   border: 3px solid black;
   border-radius: 12px;
+  color: white;
+  text-align: center;
+  padding-top: .3em;
 }
 
 aside {
-  background-color: red;
+  background-color:  #ff1a1a;
   height: 50px;
   width: 15vw;
   padding: 1em;
-  margin: 1em;
-  margin-right: 2em;
   float: left;
   border: 3px solid black;
   border-radius: 10px;
   margin-top: 15%;
+  margin-bottom: 1em;
+  /*box-sizing: content-box;*/
 }
 
 span {
@@ -79,7 +85,7 @@ button {
 
 }
 
-@media (min-width: 940px) {
+@media (min-width: 860px) {
   aside {
     margin-top: 10%;
   }
