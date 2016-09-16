@@ -81,14 +81,12 @@ var App = {
 var UI = {
   color: function(color, col){
     var column = $('.col' + col);
-
     var takenSpots = [];
     for (var i = 0; i < column.length; i++) {
       if(column[i].style.backgroundColor != ''){
         takenSpots.push(column[i]);
       }
     }
-
     column[takenSpots.length].style.backgroundColor = color; //color from input
 
   },
@@ -109,11 +107,6 @@ var UI = {
     //   }
     // }
   },
-    // if (App.player === false) {
-    //   $(this).css('backgroundColor', 'rgb(255,0,0)');
-    // } else {
-    //   $(this).css('backgroundColor', 'rgb(0,0,0)');
-    // }
   playerTurn: function () {
     if (App.player === false) {
       $('#player1').hide();
@@ -145,5 +138,7 @@ window.onload = function () {
   $('.column').on('click', App.getColumn);
   $('.column').on('click', UI.playerTurn);
   $('.column').on('click', UI.showWinner);
-
+  $('button').on('click', function () {
+    location.reload();
+  })
 };

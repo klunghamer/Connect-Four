@@ -49,11 +49,11 @@ aside {
   width: 15vw;
   padding: 1em;
   margin: 1em;
-  margin-right: 0;
+  margin-right: 2em;
   float: left;
   border: 3px solid black;
   border-radius: 10px;
-  margin-top: 25%;
+  margin-top: 15%;
 }
 
 span {
@@ -67,9 +67,29 @@ aside:not(.start) {
   text-align: center;
 }
 
-@media (min-width: 730px) {
+button {
+  background-color: #8080ff;
+  font-family: 'Francois One', sans-serif;
+  font-size: 15px;
+  padding: .5em;
+  border: 2px solid black;
+  border-radius: 5px;
+  /*margin-left: 10vw;*/
+  position: relative;
+
+}
+
+@media (min-width: 940px) {
   aside {
     margin-top: 10%;
+  }
+  button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    clear: both;
+    margin-bottom: 8em;
+    margin-right: 12em;
   }
 
 }
