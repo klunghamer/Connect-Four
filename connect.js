@@ -8,7 +8,6 @@ var App = {
     var token = {};
     var columnNum = Number($(this).attr('data-index'));
     token.column = columnNum;
-    token.row =
     App.addColorProp(token, columnNum);
     App.findFourVertical(columnNum);
     App.findFourHorizontal(token.color, columnNum);
@@ -53,31 +52,13 @@ var App = {
   },
 
   findFourHorizontal: function (color, columnNum) {
-    // var column = App.board[columnNum];
-    var winningRowRed = [];
-    var winningRowBlack = [];
-    for (var i = 0; i < App.board.length; i++) {
-      for (var j = App.board[i].length-1; j >= 0; j--) {
-        // console.log(App.board[i][j]);
-        if(App.board[i][j].color === 'red') {
-         winningRowRed.push(App.board[i][j].column);
-         console.log(winningRowRed);
-       } else if (App.board[i][j].color === 'black'){
-         winningRowBlack.push(App.board[i][j].column);
-         console.log(winningRowBlack);
-       }
-     }
-    }
-    if (winningRowRed.toString().includes('0,1,2,3') || winningRowRed.toString().includes('1,2,3,4') || winningRowRed.toString().includes('2,3,4,5') || winningRowRed.toString().includes('3,4,5,6')) {
-      App.player1Wins = true;
-      console.log('Player 1 Wins!');
-    }
-    if (winningRowBlack.toString().includes('0,1,2,3') || winningRowBlack.toString().includes('1,2,3,4') || winningRowBlack.toString().includes('2,3,4,5') || winningRowBlack.toString().includes('3,4,5,6')) {
-      App.player2Wins = true;
-      console.log('Player 2 Wins!');
-    }
-    // for (var i = 0; i < App.board[columnNum].length; i++) {
-    //   for (var j = 0; j <) {
+    // console.log(App.board[columnNum]);
+    var winningRow = [];
+    var checkWins = [];
+    // var winningRowBlack = [];
+    // for (var i = 0; i < App.board.length; i++) {
+    //   for (var j = 0; j < App.board[i].length-1; j++) {
+    //     // console.log(App.board[i][j]);
     //     if(App.board[i][j].color === 'red') {
     //      winningRowRed.push(App.board[i][j].column);
     //      console.log(winningRowRed);
@@ -86,8 +67,45 @@ var App = {
     //      console.log(winningRowBlack);
     //    }
     //  }
-    //hello
-
+    // }
+    console.log(color);
+    for (var i =0; i < App.board.length; i++){
+      if (color === 'red') {
+        winningRow.push(App.board[i][App.board[i].length-1]);
+      }
+      if (color === 'black') {
+        winningRow.push(App.board[i][App.board[i].length-1]);
+      }
+     }
+     for (var i = 0; i < winningRow.length; i++) {
+       if(winningRow[i] !== undefined) {
+         checkWins.push(winningRow[i].color)
+       } else {
+         checkWins.push(undefined);
+       }
+     }
+     console.log(winningRow, checkWins);
+    console.log(checkWins.toString());
+    // if (winningRowRed.toString().includes('0,1,2,3') || winningRowRed.toString().includes('1,2,3,4') || winningRowRed.toString().includes('2,3,4,5') || winningRowRed.toString().includes('3,4,5,6')) {
+    //   App.player1Wins = true;
+    //   console.log('Player 1 Wins!');
+    // }
+    // if (winningRowBlack.toString().includes('0,1,2,3') || winningRowBlack.toString().includes('1,2,3,4') || winningRowBlack.toString().includes('2,3,4,5') || winningRowBlack.toString().includes('3,4,5,6')) {
+    //   App.player2Wins = true;
+    //   console.log('Player 2 Wins!');
+    // }
+  //   for (var i = 0; i < App.board.length; i++) {
+  //     for (var j = 0; j < App.board[columnNum].length; i++) {
+  //       for (var k = 0; k)
+  //         if(App.board[i][j].color === 'red') {
+  //          winningRowRed.push(App.board[i][j].column);
+  //          console.log(winningRowRed);
+  //         } else if (App.board[i][j].color === 'black'){
+  //          winningRowBlack.push(App.board[i][j].column);
+  //          console.log(winningRowBlack);
+  //      }
+  //    }
+  //  }
   },
 }
 
