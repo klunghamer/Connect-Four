@@ -23,7 +23,7 @@ var App = {
       App.board[columnNum].unshift(token);
       App.player = !App.player;
     }
-      // console.log(App.board);
+      console.log(App.board);
       // UI.changeColors(token, columnNum);
   },
 
@@ -59,8 +59,8 @@ var App = {
       for (var j = App.board[i].length-1; j >= 0; j--) {
         // console.log(App.board[i][j]);
         if(App.board[i][j].color === 'red') {
-         winningRowRed.push(App.board[i][j].column);
-        //  console.log(winningRowRed);
+         winningRowRed.push(/*App.board[i]*/[i]);
+         console.log(winningRowRed);
        } else if (App.board[i][j].color === 'black'){
          winningRowBlack.push(App.board[i][j].column);
         //  console.log(winningRowBlack);
@@ -89,9 +89,9 @@ var UI = {
     }
     column[takenSpots.length].style.backgroundColor = color; //color from input
     column[takenSpots.length].innerHTML = '&#9733';
-
+    column[takenSpots.length].style.border = '3px solid yellow';
+    column[takenSpots.length].style.borderStyle = 'double';
   },
-
   playerTurn: function () {
     if (App.player === false) {
       $('#player1').hide();

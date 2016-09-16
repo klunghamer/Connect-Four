@@ -22,7 +22,9 @@ main {
   margin: 2em;
   border: 10px solid gray;
   border-radius: 15px;
-  outine: solid 5px yellow;
+  /*outine: solid 5px yellow;*/
+  /*border-style: double;*/
+
 }
 
 section {
@@ -34,16 +36,18 @@ section {
   /*overflow: hidden;*/
   justify-content: space-around;
   align-items: center;
-  border: 3px solid yellow;
+  border: 5px solid yellow;
+  border-style: double;
   border-radius: 15px;
 }
 
 div {
   width: 35px;
   height: 35px;
-  background-color: yellow;
+  background-color: #ffff4d;
   border: 3px solid black;
   border-radius: 12px;
+  border-style: double;
   color: white;
   text-align: center;
   padding-top: .3em;
@@ -74,7 +78,7 @@ aside:not(.start) {
 }
 
 button {
-  background-color: #8080ff;
+  background-color: #5c5cd6;
   font-family: 'Francois One', sans-serif;
   font-size: 15px;
   padding: .5em;
