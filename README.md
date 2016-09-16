@@ -16,7 +16,7 @@ Data organization and function of the game is implemented using Javascript, and 
 
 ### MVP - minimum viable product
 
-This games features include:
+This game's features include:
 
 1. An interactive board which renders on page load
 2. A way for players to mark an empty space on their turn
