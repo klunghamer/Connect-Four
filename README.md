@@ -1,7 +1,7 @@
 # Connect-Four
 Project 1 at General Assembly
 
-This Application replicates the board game of "Connect Four" in which the player needs to get four tokens in a row to win!
+This Application replicates the classic board game "Connect Four"
 
 ###Technologies
 
