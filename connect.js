@@ -68,24 +68,35 @@ var App = {
     //    }
     //  }
     // }
-    console.log(color);
-    for (var i =0; i < App.board.length; i++){
-      if (color === 'red') {
-        winningRow.push(App.board[i][App.board[i].length-1]);
-      }
-      if (color === 'black') {
-        winningRow.push(App.board[i][App.board[i].length-1]);
-      }
+
+    for (var i = 0; i < App.board.length; i++){
+      // for (var j = 0; j < App.board[i].length; j++) {
+        if (color === 'red') {
+          winningRow.push(App.board[i][App.board[i].length-(1)]);
+        }
+        if (color === 'black') {
+          winningRow.push(App.board[i][App.board[i].length-(1)]);
+        }
+      //  }
      }
-     for (var i = 0; i < winningRow.length; i++) {
-       if(winningRow[i] !== undefined) {
-         checkWins.push(winningRow[i].color)
-       } else {
-         checkWins.push(undefined);
+       for (var i = 0; i < winningRow.length; i++) {
+         if(winningRow[i] !== undefined) {
+           checkWins.push(winningRow[i].color)
+         } else {
+           checkWins.push(undefined);
+         }
        }
-     }
-     console.log(winningRow, checkWins);
-    console.log(checkWins.toString());
+
+       console.log(winningRow, checkWins);
+       console.log(checkWins.toString());
+       if (checkWins.toString().includes('red,red,red,red')) {
+         App.player1Wins = true;
+         console.log('Player 1 Wins');
+       }
+       if (checkWins.toString().includes('black,black,black,black')) {
+         App.player2Wins = true;
+         console.log('Player 2 Wins');
+       }
     // if (winningRowRed.toString().includes('0,1,2,3') || winningRowRed.toString().includes('1,2,3,4') || winningRowRed.toString().includes('2,3,4,5') || winningRowRed.toString().includes('3,4,5,6')) {
     //   App.player1Wins = true;
     //   console.log('Player 1 Wins!');
