@@ -52,72 +52,62 @@ var App = {
   },
 
   findFourHorizontal: function (color, columnNum) {
-    // console.log(App.board[columnNum]);
-    var winningRow = [];
-    var checkWins = [];
-    // var winningRowBlack = [];
-    // for (var i = 0; i < App.board.length; i++) {
-    //   for (var j = 0; j < App.board[i].length-1; j++) {
-    //     // console.log(App.board[i][j]);
-    //     if(App.board[i][j].color === 'red') {
-    //      winningRowRed.push(App.board[i][j].column);
-    //      console.log(winningRowRed);
-    //    } else if (App.board[i][j].color === 'black'){
-    //      winningRowBlack.push(App.board[i][j].column);
-    //      console.log(winningRowBlack);
-    //    }
-    //  }
-    // }
+    var array1 = [];
 
     for (var i = 0; i < App.board.length; i++){
-      // for (var j = 0; j < App.board[i].length; j++) {
+      var winningRow = [];
+      for (var j = 0; j < App.board[i].length; j++) {
         if (color === 'red') {
-          winningRow.push(App.board[i][App.board[i].length-(1)]);
+          winningRow.push(App.board[i][j].color);
+          console.log(winningRow[0]);
         }
         if (color === 'black') {
-          winningRow.push(App.board[i][App.board[i].length-(1)]);
+          winningRow.push(App.board[i][j].color);
+          // console.log('black!', winningRow);
+          console.log(winningRow[0]);
         }
-      //  }
+       }
+       array1.push(winningRow);
      }
-       for (var i = 0; i < winningRow.length; i++) {
-         if(winningRow[i] !== undefined) {
-           checkWins.push(winningRow[i].color)
-         } else {
-           checkWins.push(undefined);
-         }
-       }
-
-       console.log(winningRow, checkWins);
-       console.log(checkWins.toString());
-       if (checkWins.toString().includes('red,red,red,red')) {
-         App.player1Wins = true;
-         console.log('Player 1 Wins');
-       }
-       if (checkWins.toString().includes('black,black,black,black')) {
-         App.player2Wins = true;
-         console.log('Player 2 Wins');
-       }
-    // if (winningRowRed.toString().includes('0,1,2,3') || winningRowRed.toString().includes('1,2,3,4') || winningRowRed.toString().includes('2,3,4,5') || winningRowRed.toString().includes('3,4,5,6')) {
-    //   App.player1Wins = true;
-    //   console.log('Player 1 Wins!');
-    // }
-    // if (winningRowBlack.toString().includes('0,1,2,3') || winningRowBlack.toString().includes('1,2,3,4') || winningRowBlack.toString().includes('2,3,4,5') || winningRowBlack.toString().includes('3,4,5,6')) {
-    //   App.player2Wins = true;
-    //   console.log('Player 2 Wins!');
-    // }
-  //   for (var i = 0; i < App.board.length; i++) {
-  //     for (var j = 0; j < App.board[columnNum].length; i++) {
-  //       for (var k = 0; k)
-  //         if(App.board[i][j].color === 'red') {
-  //          winningRowRed.push(App.board[i][j].column);
-  //          console.log(winningRowRed);
-  //         } else if (App.board[i][j].color === 'black'){
-  //          winningRowBlack.push(App.board[i][j].column);
-  //          console.log(winningRowBlack);
-  //      }
-  //    }
-  //  }
+  // below I did not stick to the DRY method because many issues came up with iterating through a specific index of an array... Sorry!!
+   var row0Win = [];
+   var row1Win = [];
+   var row2Win = [];
+   var row3Win = [];
+   var row4Win = [];
+   var row5Win = [];
+    for (var i = 0; i < array1.length; i++) {
+      row0Win.push(array1[i][array1[i].length-1]);
+    }
+    for (var i = 0; i < array1.length; i++) {
+       row1Win.push(array1[i][array1[i].length-2]);
+    }
+    for (var i = 0; i < array1.length; i++) {
+        row2Win.push(array1[i][array1[i].length-3]);
+    }
+    for (var i = 0; i < array1.length; i++) {
+        row3Win.push(array1[i][array1[i].length-4]);
+    }
+    for (var i = 0; i < array1.length; i++) {
+        row4Win.push(array1[i][array1[i].length-5]);
+    }
+    for (var i = 0; i < array1.length; i++) {
+        row5Win.push(array1[i][array1[i].length-6]);
+    }
+    // console.log(row0Win, row1Win, row2Win, row3Win, row4Win, row5Win);
+    var winningArray = [row0Win, row1Win, row2Win, row3Win, row4Win, row5Win];
+    // console.log(winningArray);
+    // console.log(winningArray[0].toString());
+    for (var i = 0; i < winningArray.length; i++) {
+      if (winningArray[i].toString().includes('red,red,red,red')) {
+        App.player1Wins = true;
+      }
+      if (winningArray[i].toString().includes('black,black,black,black')) {
+        App.player2Wins = true;
+      }
+    }
   },
+
 }
 
 var UI = {
