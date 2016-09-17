@@ -59,6 +59,7 @@ aside {
   width: 15vw;
   padding: 1em;
   float: left;
+  /*clear: both;*/
   border: 3px solid black;
   border-radius: 10px;
   margin-top: 15%;
@@ -102,4 +103,14 @@ button {
     margin-right: 12em;
   }
 
+}
+
+@media (max-width: 540px) {
+  aside {
+    float: none;
+    clear: both;
+  }
+  span {
+    font-size: 16px;
+  }
 }
