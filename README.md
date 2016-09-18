@@ -1,5 +1,6 @@
 # Connect-Four
 Project 1 at General Assembly
+https://klunghamer.github.io/Connect-Four/
 
 This Application replicates the classic board game "Connect Four"
 
