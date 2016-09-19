@@ -13,10 +13,16 @@ h1 {
   text-shadow: 3px 3px 3px grey;
 }
 
+/*.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}*/
+
 main {
   display: flex;
   flex-direction: row;
-  width: 60vw;
+  width: 70vw;
   margin: auto;
   float: left;
   margin: 2em;
@@ -27,7 +33,7 @@ main {
 
 }
 
-section {
+.column {
   width: 50vw;
   height:70vh;
   background-color: #1a53ff;
@@ -42,33 +48,40 @@ section {
 }
 
 div {
-  width: 35px;
-  height: 35px;
+  width: 5vw;
+  height: 5vh;
+  font-size: 2vw;
   background-color: #ffff4d;
   border: 3px solid black;
   border-radius: 12px;
   border-style: double;
   color: white;
   text-align: center;
-  padding-top: .3em;
+  padding-top: .5em;
 }
 
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 550px;
+  margin-left: .5em;
+  margin-right: .5em;
+}
 aside {
   background-color:  #ff1a1a;
-  height: 50px;
+  font-size: 2.5vw;
+  /*height: 7vh;*/
   width: 15vw;
-  padding: 1em;
-  float: left;
-  /*clear: both;*/
+  padding: 0.8em;
   border: 3px solid black;
   border-radius: 10px;
-  margin-top: 15%;
   margin-bottom: 1em;
-  /*box-sizing: content-box;*/
 }
 
 span {
-  font-size: 18px;
+  font-size: 2.7vw;
 }
 
 aside:not(.start) {
@@ -81,7 +94,8 @@ aside:not(.start) {
 button {
   background-color: #5c5cd6;
   font-family: 'Francois One', sans-serif;
-  font-size: 15px;
+  font-size: 1.6vw;
+  width: 13vw;
   padding: .5em;
   border: 2px solid black;
   border-radius: 5px;
@@ -90,27 +104,23 @@ button {
 
 }
 
-@media (min-width: 860px) {
-  aside {
-    margin-top: 10%;
+@media (max-width: 600px) {
+  div {
+    padding-top: 1.75em;
   }
   button {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    clear: both;
-    margin-bottom: 8em;
-    margin-right: 12em;
+    font-size: 2.5vw;
+    width: 15vw;
   }
-
-}
-
-@media (max-width: 540px) {
+  h1 {
+    font-size: 40px;
+  }
+  .side {
+    height: 350px;
+  }
   aside {
-    float: none;
-    clear: both;
+    padding: .25em;
+    margin: 1em;
   }
-  span {
-    font-size: 16px;
-  }
+
 }

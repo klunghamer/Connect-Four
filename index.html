@@ -6,73 +6,78 @@
     <link rel="stylesheet" href="connect.css" media="screen" title="no title" charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="connect.js"></script>
     <script  src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>CONNECT FOUR</h1>
-    <main>
-      <section class="column" data-index="0">
-        <div class="row1 col0"></div>
-        <div class="row2 col0"></div>
-        <div class="row3 col0"></div>
-        <div class="row4 col0"></div>
-        <div class="row5 col0"></div>
-        <div class="row6 col0"></div>
-      </section>
-      <section class="column" data-index="1">
-        <div class="row1 col1"></div>
-        <div class="row2 col1"></div>
-        <div class="row3 col1"></div>
-        <div class="row4 col1"></div>
-        <div class="row5 col1"></div>
-        <div class="row6 col1"></div>
-      </section>
-      <section class="column" data-index="2">
-        <div class="row1 col2"></div>
-        <div class="row1 col2"></div>
-        <div class="row2 col2"></div>
-        <div class="row3 col2"></div>
-        <div class="row4 col2"></div>
-        <div class="row5 col2"></div>
-      </section>
-      <section class="column" data-index="3">
-        <div class="row1 col3"></div>
-        <div class="row2 col3"></div>
-        <div class="row3 col3"></div>
-        <div class="row4 col3"></div>
-        <div class="row5 col3"></div>
-        <div class="row6 col3"></div>
-      </section>
-      <section class="column" data-index="4">
-        <div class="row1 col4"></div>
-        <div class="row2 col4"></div>
-        <div class="row3 col4"></div>
-        <div class="row4 col4"></div>
-        <div class="row5 col4"></div>
-        <div class="row6 col4"></div>
-      </section>
-      <section class="column" data-index="5">
-        <div class="row1 col5"></div>
-        <div class="row2 col5"></div>
-        <div class="row3 col5"></div>
-        <div class="row4 col5"></div>
-        <div class="row5 col5"></div>
-        <div class="row6 col5"></div>
-      </section>
-      <section class="column" data-index="6">
-        <div class="row1 col6"></div>
-        <div class="row2 col6"></div>
-        <div class="row3 col6"></div>
-        <div class="row4 col6"></div>
-        <div class="row5 col6"></div>
-        <div class="row6 col6"></div>
-      </section>
+    <section class="wrapper">
+      <main>
+        <section class="column" data-index="0">
+          <div class="row1 col0"></div>
+          <div class="row2 col0"></div>
+          <div class="row3 col0"></div>
+          <div class="row4 col0"></div>
+          <div class="row5 col0"></div>
+          <div class="row6 col0"></div>
+        </section>
+        <section class="column" data-index="1">
+          <div class="row1 col1"></div>
+          <div class="row2 col1"></div>
+          <div class="row3 col1"></div>
+          <div class="row4 col1"></div>
+          <div class="row5 col1"></div>
+          <div class="row6 col1"></div>
+        </section>
+        <section class="column" data-index="2">
+          <div class="row1 col2"></div>
+          <div class="row1 col2"></div>
+          <div class="row2 col2"></div>
+          <div class="row3 col2"></div>
+          <div class="row4 col2"></div>
+          <div class="row5 col2"></div>
+        </section>
+        <section class="column" data-index="3">
+          <div class="row1 col3"></div>
+          <div class="row2 col3"></div>
+          <div class="row3 col3"></div>
+          <div class="row4 col3"></div>
+          <div class="row5 col3"></div>
+          <div class="row6 col3"></div>
+        </section>
+        <section class="column" data-index="4">
+          <div class="row1 col4"></div>
+          <div class="row2 col4"></div>
+          <div class="row3 col4"></div>
+          <div class="row4 col4"></div>
+          <div class="row5 col4"></div>
+          <div class="row6 col4"></div>
+        </section>
+        <section class="column" data-index="5">
+          <div class="row1 col5"></div>
+          <div class="row2 col5"></div>
+          <div class="row3 col5"></div>
+          <div class="row4 col5"></div>
+          <div class="row5 col5"></div>
+          <div class="row6 col5"></div>
+        </section>
+        <section class="column" data-index="6">
+          <div class="row1 col6"></div>
+          <div class="row2 col6"></div>
+          <div class="row3 col6"></div>
+          <div class="row4 col6"></div>
+          <div class="row5 col6"></div>
+          <div class="row6 col6"></div>
+        </section>
 
-    </main>
-      <aside class="start">Let's Play:<br> <span id='player1' class="animated flash">Player 1 Go !</span><span id="player2" class="animated flash">Player 2 Go !</span></aside>
-      <aside id='onewins' class='animated bounceIn'>Player 1 Wins!!!</aside>
-      <aside id='twowins' class='animated bounceIn'>Player 2 Wins!!!</aside>
-      <button>Play Again?</button>
+      </main>
+        <section class="side">
+          <aside class="start">Let's Play:<br> <span id='player1' class="animated flash">Player 1 Go !</span><span id="player2" class="animated flash">Player 2 Go !</span></aside>
+          <aside id='onewins' class='animated bounceIn'>Player 1 Wins!!!</aside>
+          <aside id='twowins' class='animated bounceIn'>Player 2 Wins!!!</aside>
+          <button>Play Again?</button>
+        </section>
+      </section>
   </body>
 </html>
