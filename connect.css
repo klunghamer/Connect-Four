@@ -72,7 +72,6 @@ div {
 aside {
   background-color:  #ff1a1a;
   font-size: 2.5vw;
-  /*height: 7vh;*/
   width: 15vw;
   padding: 0.8em;
   border: 3px solid black;
@@ -87,7 +86,7 @@ span {
 aside:not(.start) {
   background-color: #ffe066;
   padding: .5em;
-  font-size: 20px;
+  font-size: 3vw;
   text-align: center;
 }
 
